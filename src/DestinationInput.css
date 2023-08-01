@@ -1,0 +1,28 @@
+.destination-input {
+  padding: 20px;
+  margin: auto;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.destination-input label {
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+.destination-input input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.destination-input div {
+  margin: 5px 0;
+}
+
+.destination-input button {
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
