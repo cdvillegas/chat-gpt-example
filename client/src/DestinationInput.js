@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import GroupSizeSelector from './GroupSizeSelector';
+import InterestsSelector from './InterestsSelector';
 import './DestinationInput.css';
 
 function DestinationInput() {
@@ -49,11 +51,11 @@ function DestinationInput() {
   const resetForm = () => {
     setForm({
       destination: '',
-      start_date: '',
-      num_days: '',
-      daily_budget: '',
+      startDate: '',
+      numDays: '',
+      dailyBudget: '',
       weather: '',
-      group_size: '',
+      groupSize: '',
       interests: [],
     });
     setResponse(null);
@@ -95,41 +97,15 @@ function DestinationInput() {
           <label htmlFor="weather">Weather:</label>
           <input type="text" name="weather" onChange={handleInputChange} />
 
-          <label htmlFor="groupSize">Group Size:</label>
-          <input type="text" name="groupSize" onChange={handleInputChange} />
+          <h3>Group Size:</h3>
+          <GroupSizeSelector groupSize={form.groupSize} setGroupSize={(value) => setForm({ ...form, groupSize: value })} />
 
-          <label>Interests:</label>
-          <div>
-            <label>
-              <input type="checkbox" name="sightseeing" onChange={handleCheckboxChange} /> Sightseeing
-            </label>
-            <label>
-              <input type="checkbox" name="outdoorActivities" onChange={handleCheckboxChange} /> Outdoor Activities
-            </label>
-            <label>
-              <input type="checkbox" name="nightlife" onChange={handleCheckboxChange} /> Nightlife
-            </label>
-            <label>
-              <input type="checkbox" name="foodExploration" onChange={handleCheckboxChange} /> Food Exploration
-            </label>
-            <label>
-              <input type="checkbox" name="shopping" onChange={handleCheckboxChange} /> Shopping
-            </label>
-            <label>
-              <input type="checkbox" name="events" onChange={handleCheckboxChange} /> Events & Festivals
-            </label>
-          </div>
+          <InterestsSelector interests={form.interests} setInterests={(value) => setForm({ ...form, interests: value })} />
+
 
           <button type="submit">Generate Itinerary</button>
         </form>
       )}
-    </div>
-  );
-  return (
-    <div className="destination-input">
-      <form onSubmit={handleSubmit}>
-        
-      </form>
     </div>
   );
 }

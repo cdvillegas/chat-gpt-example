@@ -31,10 +31,10 @@ app.post('/generate', async (req, res) => {
     const chat_completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: prompt }],
-  });
+    });
     
     // Extract the response
-    const itinerary = JSON.parse(chat_completion.data.choices[0].message);
+    const itinerary = JSON.parse(chat_completion.data.choices[0].message.content);
 
     // Respond to the client
     res.json(itinerary);
