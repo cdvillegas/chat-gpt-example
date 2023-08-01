@@ -32,38 +32,14 @@ function DestinationInput() {
     e.preventDefault();
 
     try {
-      const response = await fetch('YOUR_API_ENDPOINT', {
+      const response = await fetch('http://localhost:3001/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(form),
       });
-      // const data = await response.json();
-      const data = {
-        "days": [
-          [
-            {
-              "name": "Breakfast at a local cafe",
-              "description": "Start your day with a delicious breakfast at a local cafe.",
-              "start": "9:00 AM",
-              "end": "10:00 AM"
-            },
-            {
-              "name": "Visit the Natural History Museum",
-              "description": "Explore the exhibits at the Natural History Museum and learn about the natural world.",
-              "start": "10:30 AM",
-              "end": "12:30 PM"
-            },
-            {
-              "name": "Lunch at a food truck",
-              "description": "Try some delicious street food at a local food truck for lunch.",
-              "start": "1:00 PM",
-              "end": "2:00 PM"
-            }
-          ]
-        ]
-      }
+      const data = await response.json();
       setResponse(data);
     } catch (error) {
       console.error('There was an error submitting the form:', error);
